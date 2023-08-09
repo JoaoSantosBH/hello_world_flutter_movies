@@ -4,7 +4,7 @@ import 'core/foundation/injector/feature_injector.dart';
 import 'core/foundation/injector/get.dart';
 import 'features/login/data/datasources/login_datasource_impl.dart';
 import 'features/login/data/datasources/login_datasource_interface.dart';
-import 'features/login/login_injector.dart';
+import 'features/login/di/login_injector.dart';
 
 
 abstract class EnvInjectors {

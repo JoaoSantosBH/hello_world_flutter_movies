@@ -1,7 +1,7 @@
 import '../../../../core/foundation/data/result.dart';
-import '../domain/entities/login_request.dart';
-import '../domain/entities/user_info.dart';
-import '../domain/repositories/login_repository_interface.dart';
+import '../entities/login_request.dart';
+import '../entities/user_info.dart';
+import '../repositories/login_repository_interface.dart';
 
 
 abstract class DoLoginUsecaseInterface {
