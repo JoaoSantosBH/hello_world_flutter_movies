@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hello_world_flutter_movies/core/constants/base_url.dart';
 
 import '../models/login_request_model.dart';
 import '../models/user_info_model.dart';
@@ -15,14 +16,14 @@ class LoginDatasourceImpl implements LoginDatasourceInterface {
     required LoginRequestModel loginRequest,
   }) async {
 
-    Map<String,dynamic> dd = loginRequest.toJson();
-    debugPrint('###### payload: $dd');
+    Map<String,dynamic> payloadSent = loginRequest.toJson();
+    debugPrint('###### payload: $payloadSent');
 
     final response = await dio.post(
-      'http://192.168.0.181:3000/login',
+      '$BASE_URL/login',
       data: loginRequest.toJson(),
     );
-    debugPrint('###### payloadRecebido: ${response.data}');
+    debugPrint('###### payloadReceived: ${response.data}');
     return UserInfoModel.fromJson(response.data);
   }
 }
