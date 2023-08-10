@@ -29,15 +29,12 @@ class PtBr implements Translations {
   String textLoginSuccessName(String name) => 'Nome: $name';
 
   @override
-  // TODO: implement textButtonLoginSuccess
   String get textButtonLoginSuccess => 'Ir para filmes';
 
   @override
-  // TODO: implement textLoginSuccess
   String get textLoginSuccess => 'Login realizado com sucesso';
 
   @override
-  // TODO: implement textButtonLogin
   String get textButtonLogin  => 'Entrar';
 
   @override
