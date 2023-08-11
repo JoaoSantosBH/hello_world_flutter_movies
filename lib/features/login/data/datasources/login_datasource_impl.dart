@@ -19,6 +19,7 @@ class LoginDatasourceImpl implements LoginDatasourceInterface {
     Map<String,dynamic> payloadSent = loginRequest.toJson();
     debugPrint('###### payload: $payloadSent');
 
+    dio.interceptors.add(LogInterceptor(responseBody: true));
     final response = await dio.post(
       '$baseUrl/login',
       data: loginRequest.toJson(),

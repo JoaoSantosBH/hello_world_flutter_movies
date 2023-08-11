@@ -16,31 +16,33 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textColor = Colors.white;
 
     return ElevatedButton(
       onPressed: showProgress ? null : onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Theme.of(context).colorScheme.primary
+      ),
       child: Container(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(8),
         width: 200,
-        height: 54,
+        height: 40,
         child: showProgress
-            ? const Center(
+            ?  Center(
                 child: SizedBox(
                   width: 24,
                   height: 24,
                   child: CircularProgressIndicator(
-                    key: Key(keyLoginCircularProgressIndicator),
-                    valueColor: AlwaysStoppedAnimation<Color>(textColor),
+                    key: const Key(keyLoginCircularProgressIndicator),
+                    valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.onPrimary),
                   ),
                 ),
               )
             : Text(
                 text,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: textColor,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
       ),

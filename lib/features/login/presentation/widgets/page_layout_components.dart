@@ -3,12 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hello_world_flutter_movies/features/login/presentation/validators/login_validators_interface.dart';
 import '../../../../core/i18n/i18n.dart';
 
-SizedBox topSpaceWidget() {
-  return const SizedBox(
-    height: 120,
-  );
-}
-
 SizedBox logoWidget() {
   return SizedBox(
     width: 185,

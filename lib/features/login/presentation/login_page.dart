@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hello_world_flutter_movies/features/login/presentation/validators/login_validators_interface.dart';
 import 'package:hello_world_flutter_movies/features/login/presentation/viewmodel/login_view_model.dart';
@@ -6,9 +5,11 @@ import 'package:hello_world_flutter_movies/features/login/presentation/widgets/b
 import 'package:hello_world_flutter_movies/features/login/presentation/widgets/login_alert_widget.dart';
 import 'package:hello_world_flutter_movies/features/login/presentation/widgets/page_layout_components.dart';
 import '../../../core/constants/keys.dart';
+import '../../../core/foundation/alerts/snack_bar_error.dart';
 import '../../../core/foundation/form/base_form.dart';
 import '../../../core/foundation/injector/get.dart';
 import '../../../core/foundation/states/view_state_builder_dialog.dart';
+import '../../../core/foundation/widgets/commons_widgets.dart';
 import '../../../core/i18n/i18n.dart';
 import '../domain/entities/login_request.dart';
 
@@ -35,19 +36,14 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
           key: formKey,
           child: ListView(
             children: [
-              TopSpaceWidget(),
-              LogoWidget(),
-              const SizedBox(
-                height: 80,
-              ),
+              myVerticalSpacer(120),
+              logoWidget(),
+              myVerticalSpacer(80),
               nameFormField(keyTextFormFieldUsername, _loginNameController,_formValidators),
-              const SizedBox(
-                height: 48,
-              ),
+              myVerticalSpacer(48),
               passFormField(keyTextFormFieldPassword, _passwordController, _formValidators),
-              const SizedBox(
-                height: 32,
-              ),
+              myVerticalSpacer(48),
+
               ViewStateBuilderDialog(
                 state: viewModel.loginViewState,
                 builder: (context, state) {
@@ -62,11 +58,11 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                         ),
                       );
                     });
-
                     viewModel.cleanViewState();
                   }
 
                   final isLoading = state.loading;
+
                   return ButtonWidget(
                     key: const Key(keyButtonLogin),
                     text: I18n.strings.textButtonLogin,
@@ -76,18 +72,10 @@ class _LoginPageState extends State<LoginPage> with BaseForm {
                 },
                 onError: (failure) {
                   if (failure != null) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        key: const Key(keyScaffolMessage),
-                        content: Text(
-                          failure.message,
-                        ),
-                      ),
-                    );
+                    showSnackBarAlert(context, failure);
                   }
                 },
               )
-
             ],
           ),
         ),
