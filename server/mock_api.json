@@ -1,0 +1,21 @@
+{
+  "mockedapi": {
+    "content": "Hello Mocked API world !!"
+  },
+  "users": [
+    {
+      "email": "jomar@gmail.com",
+      "password": "$2a$10$5KRgSRETN1GZDSvHXhQ8buQ9T1VQDsNGmdyZCM/TdhqFrOY2x0LAa",
+      "nome": "Jomar Seixas",
+      "urlFoto": "https://unsplash.com/photos/qXhgPJHnDeU",
+      "id": 1
+    },
+    {
+      "email": "jonas@gmail.com",
+      "password": "$2a$10$AAVpAoS6qyfbexin9vrSJee9oLWp.ngPzJnghZZteRLIbnX2Z179S",
+      "name": "Jonas Abdul",
+      "photoUrl": "",
+      "id": 2
+    }
+  ]
+}
