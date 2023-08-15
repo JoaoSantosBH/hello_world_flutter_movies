@@ -19,6 +19,12 @@ class _MoviesPageState extends State<MoviesPage> {
   final MoviesViewModel viewModel = get();
 
   @override
+  void initState() {
+    viewModel.fetch();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
