@@ -46,5 +46,18 @@ class PtBr implements Translations {
   //MOVIES
 
   @override
-  String get textMoviesListTitle => 'Menu';
+  String get textMoviesListTitle => 'Movies';
+
+  @override
+  String get tabAllMovies => 'Todos os filmes';
+
+  @override
+  String get tabFavoriteMovies => 'Filmes Favoritos';
+
+  @override
+  String get textOverview => 'Sem visão geral';
+
+  @override
+  String get textRating => 'Avaliação:';
+
 }

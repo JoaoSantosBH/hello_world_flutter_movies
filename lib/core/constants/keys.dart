@@ -12,3 +12,10 @@ const keyLoginAlertButton = 'keyLoginAlertButton';
 const keyMoviesListAppBar = 'keyMoviesListAppBar';
 const keyMoviesCicularProgressIndicator = 'keyMoviesCicularProgressIndicator';
 const keyMoviesErrorText = 'keyMoviesErrorText';
+
+const keyMoviesDetails = 'keyMoviesDetails';
+const keyMoviesTitle = 'keyMoviesDetails';
+
+const keyMoviesRating = 'keyMoviesRating';
+const keyMoviesOverview = 'keyMoviesOverview';
+const keyTextOverview = 'keyTextOverview';

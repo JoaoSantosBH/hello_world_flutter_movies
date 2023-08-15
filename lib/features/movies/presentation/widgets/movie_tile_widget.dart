@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../login/presentation/login_page.dart';
+import 'package:hello_world_flutter_movies/features/movies/presentation/movies_details_page.dart';
 import '../../domain/entities/movie.dart';
 
 class MovieTileWidget extends StatelessWidget {
@@ -39,7 +39,7 @@ class MovieTileWidget extends StatelessWidget {
   void onTap(BuildContext context) {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => const LoginPage(), //TODO alterar para tela detalhes
+        builder: (_) =>  MovieDetailsPage(movie: movie),
       ),
     );
   }
