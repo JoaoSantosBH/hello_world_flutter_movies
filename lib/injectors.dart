@@ -5,6 +5,9 @@ import 'core/foundation/injector/get.dart';
 import 'features/login/data/datasources/login_datasource_impl.dart';
 import 'features/login/data/datasources/login_datasource_interface.dart';
 import 'features/login/di/login_injector.dart';
+import 'features/movies/data/datasources/movies_datasource.dart';
+import 'features/movies/data/datasources/movies_datasources_impl.dart';
+import 'features/movies/di/movies_injector.dart';
 
 
 abstract class EnvInjectors {
@@ -12,12 +15,11 @@ abstract class EnvInjectors {
 
   List<FeatureInjector> featureInjectors = [
     LoginInjector(),
-    // MoviesInjector(),
+    MoviesInjector(),
   ];
 
   Future<void> inject() async {
     injectDatasources();
-
     featureInjectors.forEach(((e) => e.inject()));
   }
 
@@ -40,11 +42,11 @@ class ReleaseInjectors extends EnvInjectors {
       ),
     );
 
-    // get.registerFactory<MoviesDatasourceInterface>(
-    //   () => MoviesDatasourceImpl(
-    //     dio: get(),
-    //   ),
-    // );
+    get.registerFactory<MoviesDatasourceInterface>(
+      () => MoviesDatasourceImpl(
+        dio: get(),
+      ),
+    );
   }
 }
 
