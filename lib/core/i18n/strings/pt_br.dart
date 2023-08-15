@@ -2,6 +2,8 @@ import 'translations.dart';
 
 class PtBr implements Translations {
 
+  //LOGIN
+
   @override
   String get textUsernameFormFieldHint => 'Usuário';
 
@@ -39,5 +41,10 @@ class PtBr implements Translations {
 
   @override
   String get textGenericFailureMessage =>
-      'Ocorrou um erro, favor tente novamente mais tarde';
+      'Ocorreu um erro! Tente novamente mais tarde';
+
+  //MOVIES
+
+  @override
+  String get textMoviesListTitle => 'Menu';
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constants/keys.dart';
 import '../../../../../core/i18n/i18n.dart';
 
+import '../../../movies/presentation/movies_page.dart';
 import '../../domain/entities/user_info.dart';
 import 'button_widget.dart';
 
@@ -51,7 +52,7 @@ class _LoginAlertWidgetState extends State<LoginAlertWidget> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return  Container();
+          return  const MoviesPage();
         },
       ),
     );
