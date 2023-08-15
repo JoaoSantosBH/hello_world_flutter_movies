@@ -26,49 +26,58 @@ class _MoviesPageState extends State<MoviesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        key: const Key(keyMoviesListAppBar),
-        title: Text(I18n.strings.textMoviesListTitle),
-        automaticallyImplyLeading: false,// remove backbutton
-      ),
-      body: ViewStateBuilder<List<Movie>>(
-        state: viewModel.moviesState,
-        builder: (_,state) {
-          final movies = state.value;
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: I18n.strings.tabAllMovies),
+              Tab(text: I18n.strings.tabFavoriteMovies,),
+            ],
+          ),
+          key: const Key(keyMoviesListAppBar),
+          title: Text(I18n.strings.textMoviesListTitle),
+          automaticallyImplyLeading: false,// remove backbutton
+        ),
+        body: ViewStateBuilder<List<Movie>>(
+          state: viewModel.moviesState,
+          builder: (_,state) {
+            final movies = state.value;
 
-          if(movies !=null && movies.isNotEmpty){
-            return GridView.builder(
-              padding: const EdgeInsets.all(16.0),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            if(movies !=null && movies.isNotEmpty){
+              return GridView.builder(
+                padding: const EdgeInsets.all(16.0),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 0.7,
-              ),
-              itemCount: movies.length,
-              itemBuilder: (context, index){
-                final movie = movies[index];
-                return MovieTileWidget(movie: movie);
-              },
-            );
-          }
+                  crossAxisSpacing: 16.0,
+                  mainAxisSpacing: 16.0,
+                  childAspectRatio: 0.7,
+                ),
+                itemCount: movies.length,
+                itemBuilder: (context, index){
+                  final movie = movies[index];
+                  return MovieTileWidget(movie: movie);
+                },
+              );
+            }
 
-          if(state.loading) {
-            return const Center(
-              key: Key(keyMoviesCicularProgressIndicator),
-              child: CircularProgressIndicator(),
-            );
-          }
+            if(state.loading) {
+              return const Center(
+                key: Key(keyMoviesCicularProgressIndicator),
+                child: CircularProgressIndicator(),
+              );
+            }
 
-          if(state.error != null) {
-            return Center(
-              key: const Key(keyMoviesErrorText),
-              child: Text(state.error!.message),
-            );
-          }
-          return const SizedBox.shrink();
-        },
+            if(state.error != null) {
+              return Center(
+                key: const Key(keyMoviesErrorText),
+                child: Text(state.error!.message),
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ),
     );
   }

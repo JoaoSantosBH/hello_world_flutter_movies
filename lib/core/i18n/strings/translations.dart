@@ -22,6 +22,13 @@ abstract class Translations {
 
   String get textMoviesListTitle;
   String get textGenericFailureMessage;
+  String get tabAllMovies;
+  String get tabFavoriteMovies;
+
+
+  //
+  String get textOverview;
+  String get textRating;
 
 
 }
