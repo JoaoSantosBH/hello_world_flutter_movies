@@ -68,7 +68,7 @@ Instalação do JSON Server
 04 - Rode o comando:
 
 
-    json-server-auth  --watch --host [SEWU_IP_LOCAL] mock_api.json -r routes.json
+    json-server-auth  --watch --host [SEU_IP_LOCAL] mock_api.json -r routes.json
 
 
 ## **Terceiro passo:**
@@ -112,7 +112,7 @@ Resposta 201
 
 Crie um chamada POST com a url
 
-    http://SEU_IP_LOCAL]:3000/login
+    http://[SEU_IP_LOCAL]:3000/login
 
 
 Coloque o body como JSON
